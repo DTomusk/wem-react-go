@@ -1,10 +1,13 @@
+import { Button } from '@mui/material'
 import './App.css'
-import NavBar from './components/layout/NavBar'
+import StandardTemplate from './components/templates/StandardTemplate'
 
 function App() {
   return (
     <>
-      <NavBar />
+      <StandardTemplate>
+        <Button variant="contained" color="primary">Wem</Button>
+      </StandardTemplate>
     </>
   )
 }
