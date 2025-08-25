@@ -1,9 +1,10 @@
 import './App.css'
+import NavBar from './components/layout/NavBar'
 
 function App() {
   return (
     <>
-      <h1>WEM</h1>
+      <NavBar />
     </>
   )
 }
