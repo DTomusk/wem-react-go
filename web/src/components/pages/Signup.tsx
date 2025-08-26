@@ -1,7 +1,9 @@
+import { Typography } from "@mui/material";
+import { useTranslation } from "react-i18next";
+
 export default function Signup() {
+    const { t } = useTranslation();
     return (
-        <div>
-            <h1>Signup</h1>
-        </div>
+        <Typography variant="h1">{t("signup")}</Typography>
     )
 }

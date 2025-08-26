@@ -1,6 +1,10 @@
 import { AppBar, Box, Link, Toolbar, Typography } from "@mui/material";
+import { useTranslation } from "react-i18next";
+import LanguagePicker from "../molecules/LanguagePicker";
+import { Link as RouterLink } from "react-router-dom";
 
 export default function NavBar() {
+    const { t } = useTranslation();
     return (
         <Box sx={{ flexGrow: 1 }}>
             <AppBar position="static">
@@ -11,10 +15,11 @@ export default function NavBar() {
                 }}>
                     <Typography variant="h4">W</Typography>
                     <Box sx={{ display: "flex", gap: 2, color: "white" }}>
-                        <Link href="/" sx={{ textDecoration: "none", color: "inherit" }}>Home</Link>
-                        <Link href="/about" sx={{ textDecoration: "none", color: "inherit" }}>About</Link>
-                        <Link href="/signup" sx={{ textDecoration: "none", color: "inherit" }}>Sign Up</Link>
+                        <Link component={RouterLink} to="/" sx={{ textDecoration: "none", color: "inherit" }}>{t("home")}</Link>
+                        <Link component={RouterLink} to="/about" sx={{ textDecoration: "none", color: "inherit" }}>{t("about")}</Link>
+                        <Link component={RouterLink} to="/signup" sx={{ textDecoration: "none", color: "inherit" }}>{t("signup")}</Link>
                     </Box>
+                    <LanguagePicker />
                 </Toolbar>
             </AppBar>
         </Box>
