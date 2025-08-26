@@ -1,4 +1,4 @@
-import { AppBar, Box, Toolbar, Typography } from "@mui/material";
+import { AppBar, Box, Link, Toolbar, Typography } from "@mui/material";
 
 export default function NavBar() {
     return (
@@ -10,6 +10,11 @@ export default function NavBar() {
                     alignItems: "center",
                 }}>
                     <Typography variant="h4">W</Typography>
+                    <Box sx={{ display: "flex", gap: 2, color: "white" }}>
+                        <Link href="/" sx={{ textDecoration: "none", color: "inherit" }}>Home</Link>
+                        <Link href="/about" sx={{ textDecoration: "none", color: "inherit" }}>About</Link>
+                        <Link href="/signup" sx={{ textDecoration: "none", color: "inherit" }}>Sign Up</Link>
+                    </Box>
                 </Toolbar>
             </AppBar>
         </Box>
