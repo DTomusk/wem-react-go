@@ -10,6 +10,9 @@ interface ThemeModeContextType {
     toggleTheme: () => void;
 }
 
+// React contexts wrap the app so any children can access data without prop drilling
+// The ThemeRegistry wraps the app, meaning any component can access the theme mode
+// Because ThemeModeContext wraps ThemeProvider, we can pass the theme to MUI's provider
 const ThemeModeContext = createContext<ThemeModeContextType>({
     mode: "light",
     toggleTheme: () => {},
@@ -21,7 +24,6 @@ export function useThemeMode() {
 
 export default function ThemeRegistry({ children }: { children: React.ReactNode }) {
     const [mode, setMode] = useState<ThemeMode>("light");
-
 
     const toggleTheme = () => {
         setMode((prevMode) => (prevMode === "light" ? "dark" : "light"));
