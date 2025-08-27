@@ -1,7 +1,7 @@
 import { ThemeProvider } from "@mui/material/styles";
 import { darkTheme, lightTheme } from "../../theme";
 import { CssBaseline } from "@mui/material";
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 
 export type ThemeMode = "light" | "dark";
 
@@ -25,8 +25,19 @@ export function useThemeMode() {
 export default function ThemeRegistry({ children }: { children: React.ReactNode }) {
     const [mode, setMode] = useState<ThemeMode>("light");
 
+    useEffect(() => {
+        const savedMode = localStorage.getItem("theme");
+        if (savedMode) {
+            setMode(savedMode as ThemeMode);
+        }
+    }, []);
+
     const toggleTheme = () => {
-        setMode((prevMode) => (prevMode === "light" ? "dark" : "light"));
+        setMode((prevMode) => {
+            const newMode = prevMode === "light" ? "dark" : "light";
+            localStorage.setItem("theme", newMode);
+            return newMode;
+        });
     };
 
     return (
