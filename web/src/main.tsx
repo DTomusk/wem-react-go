@@ -5,12 +5,12 @@ import App from './App.tsx';
 import { BrowserRouter } from 'react-router-dom';
 import './i18n';
 import { ThemeProvider, CssBaseline } from '@mui/material';
-import { lightTheme } from './theme';
+import { darkTheme, lightTheme } from './theme';
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <BrowserRouter>
-      <ThemeProvider theme={lightTheme}>
+      <ThemeProvider theme={darkTheme}>
         <CssBaseline />
         <App />
       </ThemeProvider>
