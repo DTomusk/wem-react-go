@@ -7,5 +7,10 @@ Run `npm run dev` from the web directory
 # Running api 
 Run `go run cmd\server\main.go` from the api directory
 
+# Creating migrations
+Run `migrate create -ext sql -dir migrations -seq <migration_name>` in api 
 
-Here's my connection string to my local database (just for reference) postgresql://postgres:mypassword@localhost:5432/postgres
+# Running migrations
+Run `migrate -path migrations -database "postgresql://postgres:mypassword@localhost:5432/postgres?sslmode=disable" up` to run up migrations. Replace `up` with `down` for tearing down the database. 
+
+Replace connection string where necessary
