@@ -1,5 +1,7 @@
 {
     "home": "Home",
     "about": "About",
-    "signup": "Sign Up"
+    "signup": "Sign Up",
+    "lightMode": "Light Mode",
+    "darkMode": "Dark Mode"
 }

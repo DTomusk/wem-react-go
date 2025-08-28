@@ -7,7 +7,7 @@ export default function LanguagePicker() {
     return (
         <Select value={i18n.language} onChange={(e) => i18n.changeLanguage(e.target.value)} sx={{ color: "white", border: "none" }}>
             <MenuItem value="en">English</MenuItem>
-            <MenuItem value="de">German</MenuItem>
+            <MenuItem value="de">Deutsch</MenuItem>
         </Select>
     )
 }
