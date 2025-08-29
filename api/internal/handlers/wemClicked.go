@@ -1,23 +1,22 @@
 package handlers
 
 import (
-	"database/sql"
 	"fmt"
 	"net/http"
 
+	"github.com/DTomusk/wem-react-go/internal/db"
 	_ "github.com/lib/pq"
 )
 
 func WemClickedHandler(w http.ResponseWriter, r *http.Request) {
 	// TODO: replace with environment variable
-	connStr := "host=localhost port=5432 user=postgres password=mypassword dbname=postgres sslmode=disable"
-	db, err := sql.Open("postgres", connStr)
+	db, err := db.NewConnection()
 	if err != nil {
 		panic(err)
 	}
-	defer db.Close()
+	defer db.Conn.Close()
 
-	err = db.Ping()
+	err = db.Conn.Ping()
 	if err != nil {
 		panic(err)
 	}
